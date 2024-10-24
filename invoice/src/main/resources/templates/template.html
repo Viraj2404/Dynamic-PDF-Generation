@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+</head>
+<body>
+
+    <!-- Seller and Buyer Information Section -->
+	<table width="100%" border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse;">
+	    <tr th:each="employee : ${employees}">
+	        <!-- Seller Details -->
+	        <td>
+	            <strong>Seller:</strong><br>
+	            <span th:text="${employee.seller}"></span><br>
+	            <span th:text="${employee.sellerAddress}"></span><br>
+	            <i>GSTIN: </i> <span th:text="${employee.sellerGstin}"></span><br>
+	        </td>
+
+	        <!-- Buyer Details -->
+	        <td>
+	            <strong>Buyer:</strong><br>
+	            <span th:text="${employee.buyer}"></span><br>
+	            <span th:text="${employee.buyerAddress}"></span><br>
+	            <i>GSTIN: </i> <span th:text="${employee.buyerGstin}"></span><br>
+	        </td>
+	    </tr>
+	</table>
+
+
+    <!-- Items Section -->
+    <h3>Items</h3>
+    <table width="100%" border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; text-align: center;">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.itemName}"></td>
+                <td th:text="${employee.quantity}"></td>
+                <td th:text="${employee.rate}"></td>
+                <td th:text="${employee.amount}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
